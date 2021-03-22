@@ -3,13 +3,40 @@
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=laddzhao&no-frame=true)](https://github.com/bowu678)
 
-- 🔭 I’m currently working on **JavaScript**
-
-- 📫 How to reach me **laddzhao@gmail.com**
-
 - 📄 Know about my experiences [http://www.bowu8.com](http://www.bowu8.com)
 
-- ⚡ Fun fact **网页制作**
+```
+你还很年轻，
+
+将来你会遇到很多人，
+
+经历很多事，
+
+得到很多，
+
+也会失去很多，
+
+但无论如何，
+
+有两样东西，
+
+你绝不能丢弃，
+
+一个叫良心，
+
+另一个叫理想。
+
+
+
+成功只有一个：
+
+按照自己的方式，去度过人生。
+
+```
+
+
+
+
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
