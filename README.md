@@ -6,8 +6,6 @@
 - 📄 Know about my experiences [www.bowu8.com](http://www.bowu8.com)
 <h3 align="center">
 
-I believe:
-
 
 你还很年轻，
 
