@@ -3,9 +3,9 @@
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=laddzhao&no-frame=true)](https://github.com/bowu678)
 
-- 📄 Know about my experiences [http://www.bowu8.com](http://www.bowu8.com)
-<h3 align="center">I believe:</h3>
+- 📄 Know about my experiences [www.bowu8.com](http://www.bowu8.com)
 <h3 align="center">
+I believe:
 
 你还很年轻，
 
