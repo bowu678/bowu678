@@ -1,10 +1,11 @@
 <h1 align="center">Hi 👋, I'm bowu</h1>
-<h3 align="center">/*网络上的一片自留地*/</h3>
+<h3 align="center">/*网络上的一片自留地*/
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=laddzhao&no-frame=true)](https://github.com/bowu678)
 
 - 📄 Know about my experiences [http://www.bowu8.com](http://www.bowu8.com)
 <h3 align="left">I believe:</h3>
+<h3 align="center">
 ```
 你还很年轻，
 
@@ -33,13 +34,9 @@
 按照自己的方式，去度过人生。
 
 ```
+</h3>
 
 
-
-
-
-
-<p align="left">
 
 
 <h3 align="left">Languages and Tools:</h3>
