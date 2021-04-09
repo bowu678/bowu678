@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm bowu</h1>
 <h3 align="center">/*网络上的一片自留地*/
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=laddzhao&no-frame=true)](https://github.com/bowu678)
+[![trophy](https://github-profile-trophy.vercel.app/?username=bowu678&no-frame=true)](https://github.com/bowu678)
 
 - 📄 Know about my experiences [www.bowu8.com](http://www.bowu8.com)
 <h3 align="center">
