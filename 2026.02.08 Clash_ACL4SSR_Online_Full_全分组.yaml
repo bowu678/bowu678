@@ -1,0 +1,92 @@
+# 说明：
+# 1) 已按地区拆分并去重节点，避免策略组出现重复节点。
+# 2) AI 分组保留，且仅可选择美国节点。
+# 3) 各地区分组把对应地区节点放在最前（Clash 的 select 默认取第一个）。
+
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: true
+
+external-controller: 127.0.0.1:9090
+
+# 你当前的手动节点（仅保留唯一项）
+proxies:
+  - {name: reality-hk, type: ss, server: 127.0.0.1, port: 1, cipher: aes-128-gcm, password: "replace_me"}
+  - {name: reality-us, type: ss, server: 127.0.0.1, port: 2, cipher: aes-128-gcm, password: "replace_me"}
+  - {name: ss-hk-中转泉州电信IEPLx10, type: ss, server: 127.0.0.1, port: 3, cipher: aes-128-gcm, password: "replace_me"}
+  - {name: ss-美-中转泉州电信IEPLx10, type: ss, server: 127.0.0.1, port: 4, cipher: aes-128-gcm, password: "replace_me"}
+  - {name: ss-hk-中转深港联通IEPLx10, type: ss, server: 127.0.0.1, port: 5, cipher: aes-128-gcm, password: "replace_me"}
+  - {name: reality-hk-中转深港联通IEPLx10, type: ss, server: 127.0.0.1, port: 6, cipher: aes-128-gcm, password: "replace_me"}
+  - {name: SS-美-中转深港联通IEPLx10, type: ss, server: 127.0.0.1, port: 7, cipher: aes-128-gcm, password: "replace_me"}
+
+proxy-groups:
+  # 总控组：优先自动选择，也可手动切换到地区组
+  - name: 节点选择
+    type: select
+    proxies:
+      - 自动选择
+      - 故障转移
+      - 香港节点
+      - 美国节点
+      - DIRECT
+
+  # AI 必须保留，且只允许美国节点
+  - name: AI
+    type: select
+    proxies:
+      - 美国节点
+
+  # 全节点自动测速（去重后仅 7 个）
+  - name: 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+    proxies:
+      - reality-hk
+      - reality-us
+      - ss-hk-中转泉州电信IEPLx10
+      - ss-美-中转泉州电信IEPLx10
+      - ss-hk-中转深港联通IEPLx10
+      - reality-hk-中转深港联通IEPLx10
+      - SS-美-中转深港联通IEPLx10
+
+  - name: 故障转移
+    type: fallback
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - reality-us
+      - SS-美-中转深港联通IEPLx10
+      - ss-美-中转泉州电信IEPLx10
+      - reality-hk
+      - reality-hk-中转深港联通IEPLx10
+      - ss-hk-中转深港联通IEPLx10
+      - ss-hk-中转泉州电信IEPLx10
+
+  # 地区分组：对应地区节点放首位，作为默认选择
+  - name: 香港节点
+    type: select
+    proxies:
+      - reality-hk
+      - reality-hk-中转深港联通IEPLx10
+      - ss-hk-中转深港联通IEPLx10
+      - ss-hk-中转泉州电信IEPLx10
+      - DIRECT
+
+  - name: 美国节点
+    type: select
+    proxies:
+      - reality-us
+      - SS-美-中转深港联通IEPLx10
+      - ss-美-中转泉州电信IEPLx10
+      - DIRECT
+
+rules:
+  - DOMAIN-SUFFIX,openai.com,AI
+  - DOMAIN-SUFFIX,chatgpt.com,AI
+  - DOMAIN-KEYWORD,claude,AI
+  - GEOIP,CN,DIRECT
+  - MATCH,节点选择
